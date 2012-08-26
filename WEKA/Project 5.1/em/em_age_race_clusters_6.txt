@@ -1,0 +1,52 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.EM -I 100 -N -1 -M 1.0E-6 -S 100
+Relation:     project_5.1_small
+Instances:    80667
+Attributes:   5
+              Race or Ethnicity
+              Sex and Sexual Orientation
+Ignored:
+              Location
+               Age at Diagnosis
+              Vital Status
+Test mode:    evaluate on training data
+
+=== Model and evaluation on training set ===
+
+
+EM
+==
+
+Number of clusters selected by cross validation: 6
+
+
+                                                    Cluster
+Attribute                                                 0          1          2          3          4          5
+                                                     (0.37)     (0.18)     (0.04)     (0.06)     (0.08)     (0.26)
+===================================================================================================================
+Race or Ethnicity
+  Black (and also not Hispanic)                   16017.1637  8751.3244    56.3462    32.7627  6663.1734    33.2294
+  White (and also not Hispanic)                    6350.8684  2765.4992  2682.4604    32.5047     32.653 21190.0143
+  Hispanic                                         7411.8001  2839.8952   114.0115  4691.9656    32.9553    33.3724
+  Unknown                                            27.6827     9.8942     3.1669    10.3079     9.4141     9.5342
+  Asian / Pacific Islander                          186.5283    82.8109     51.695   310.0822     29.291    29.5927
+  American Indian /Alaskan Native                     43.818    33.3614    35.9313    55.6819    21.0234     21.184
+  [total]                                         30037.8612 14482.7853  2943.6112  5133.3051  6788.5102 21316.9271
+Sex and Sexual Orientation
+  Male (bisexual)                                  6126.8607    37.2057  2844.4844     18.097    57.5002     32.852
+  Male (homosexual)  or Unknown Classification       33.1907     33.113    32.1469  5040.7565  6666.8331 21215.9599
+  Male (heterosexual or pediatric)                23842.9691    32.2116    33.2437    40.6203    29.4486    33.5067
+  Female (any)                                       32.8407  14378.255    31.7362    31.8313    32.7283    32.6085
+  [total]                                         30035.8612 14480.7853  2941.6112  5131.3051  6786.5102 21314.9271
+Clustered Instances
+
+0      29052 ( 36%)
+1      14534 ( 18%)
+2       4065 (  5%)
+3       5171 (  6%)
+4       6648 (  8%)
+5      21197 ( 26%)
+
+
+Log likelihood: -2.29231

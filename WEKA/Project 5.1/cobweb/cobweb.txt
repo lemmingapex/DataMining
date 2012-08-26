@@ -1,0 +1,55 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.Cobweb -A 1.0 -C 0.1582094791773878 -S 42
+Relation:     project_5.1_small
+Instances:    80667
+Attributes:   5
+               Age at Diagnosis
+              Race or Ethnicity
+              Sex and Sexual Orientation
+Ignored:
+              Location
+              Vital Status
+Test mode:    evaluate on training data
+
+=== Model and evaluation on training set ===
+
+Number of merges: 270
+Number of splits: 265
+Number of clusters: 14
+
+node 0 [80667]
+|   leaf 1 [33528]
+node 0 [80667]
+|   node 2 [15372]
+|   |   leaf 3 [4692]
+|   node 2 [15372]
+|   |   leaf 4 [6119]
+|   node 2 [15372]
+|   |   node 5 [4561]
+|   |   |   leaf 6 [2856]
+|   |   node 5 [4561]
+|   |   |   leaf 7 [1705]
+node 0 [80667]
+|   node 8 [31767]
+|   |   leaf 9 [12785]
+|   node 8 [31767]
+|   |   node 10 [10117]
+|   |   |   leaf 11 [6648]
+|   |   node 10 [10117]
+|   |   |   leaf 12 [3469]
+|   node 8 [31767]
+|   |   leaf 13 [8865]
+
+Clustered Instances
+
+ 1      33529 ( 42%)
+ 3       4690 (  6%)
+ 4       6102 (  8%)
+ 6       2857 (  4%)
+ 7       1706 (  2%)
+ 9      12799 ( 16%)
+11       6648 (  8%)
+12       3471 (  4%)
+13       8865 ( 11%)
+

@@ -1,0 +1,40 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.SimpleKMeans -N 4 -A "weka.core.EuclideanDistance -R first-last" -I 500 -S 10
+Relation:     project_5.1_small
+Instances:    80667
+Attributes:   5
+               Age at Diagnosis
+              Race or Ethnicity
+              Sex and Sexual Orientation
+Ignored:
+              Location
+              Vital Status
+Test mode:    evaluate on training data
+
+=== Model and evaluation on training set ===
+
+
+kMeans
+======
+
+Number of iterations: 3
+Within cluster sum of squared errors: 93380.0
+Missing values globally replaced with mean/mode
+
+Cluster centroids:
+                                                                                                                                 Cluster#
+Attribute                                                                          Full Data                                            0                                            1                                            2                                            3
+                                                                                     (80667)                                      (16767)                                      (25763)                                      (11704)                                      (26433)
+================================================================================================================================================================================================================================================================================
+ Age at Diagnosis                                            35 - 39 Years or age is missing              35 - 39 Years or age is missing                                30 - 34 Years                                30 - 34 Years              35 - 39 Years or age is missing
+Race or Ethnicity                                              White (and also not Hispanic)                White (and also not Hispanic)                Black (and also not Hispanic)                Black (and also not Hispanic)                White (and also not Hispanic)
+Sex and Sexual Orientation                      Male (homosexual)  or Unknown Classification                              Male (bisexual)             Male (heterosexual or pediatric)                                 Female (any) Male (homosexual)  or Unknown Classification
+
+
+Clustered Instances
+
+0      16767 ( 21%)
+1      25763 ( 32%)
+2      11704 ( 15%)
+3      26433 ( 33%)

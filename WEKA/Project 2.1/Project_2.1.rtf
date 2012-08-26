@@ -1,0 +1,471 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}}
+{\*\generator Msftedit 5.41.15.1515;}\viewkind4\uc1\pard\qr\f0\fs24 Scott Wiedemann\par
+10/21/09\par
+\pard\par
+\pard\qc\b Project 2.1\par
+\pard\b0\par
+\b Summary stats:\par
+\b0 I decided to use the normalized .arff file, so I will only list frequencies here.\par
+\par
+outlook:\par
+sunny\tab\tab 5\par
+overcast\tab 4\par
+rainy\tab\tab 5\par
+\par
+temperature:\par
+hot\tab\tab 4\par
+mild\tab\tab 6\par
+cool\tab\tab 4\par
+\par
+humidity:\par
+high\tab\tab 7\par
+normal\tab\tab 7\par
+\par
+windy:\par
+true\tab\tab 6\par
+flase\tab\tab 8\par
+\par
+play:\par
+yes\tab\tab 9\par
+no\tab\tab 5\par
+\par
+\b Clustering:\par
+\b0 Using a k-means clustering algorithm, no clusters were apparent.  There is very little data, and all of the attributes are nominal which doesn't lend well to clusters.\par
+\par
+\b Classification:\par
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2\par
+\b0 Relation:     weather.symbolic\par
+Instances:    14\par
+Attributes:   5\par
+              outlook\par
+              temperature\par
+              humidity\par
+              windy\par
+              play\par
+Test mode:    10-fold cross-validation\par
+\par
+=== Classifier model (full training set) ===\par
+\par
+J48 pruned tree\par
+------------------\par
+\par
+outlook = sunny\par
+|   humidity = high: no (3.0)\par
+|   humidity = normal: yes (2.0)\par
+outlook = overcast: yes (4.0)\par
+outlook = rainy\par
+|   windy = TRUE: no (2.0)\par
+|   windy = FALSE: yes (3.0)\par
+\par
+Number of Leaves  : \tab 5\par
+\par
+Size of the tree : \tab 8\par
+\par
+\par
+Time taken to build model: 0.02 seconds\par
+\par
+=== Stratified cross-validation ===\par
+=== Summary ===\par
+\par
+Correctly Classified Instances           7               50      %\par
+Incorrectly Classified Instances         7               50      %\par
+Kappa statistic                         -0.0426\par
+Mean absolute error                      0.4167\par
+Root mean squared error                  0.5984\par
+Relative absolute error                 87.5    %\par
+Root relative squared error            121.2987 %\par
+Total Number of Instances               14     \par
+\par
+=== Detailed Accuracy By Class ===\par
+\par
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\par
+                 0.556     0.6        0.625     0.556     0.588      0.633    yes\par
+                 0.4       0.444      0.333     0.4       0.364      0.633    no\par
+Weighted Avg.    0.5       0.544      0.521     0.5       0.508      0.633\par
+\par
+=== Confusion Matrix ===\par
+\par
+ a b   <-- classified as\par
+ 5 4 | a = yes\par
+ 3 2 | b = no\par
+\par
+\par
+\b Scheme:       weka.classifiers.rules.ConjunctiveRule -N 3 -M 2.0 -P -1 -S 1\par
+\b0 Relation:     weather.symbolic\par
+Instances:    14\par
+Attributes:   5\par
+              outlook\par
+              temperature\par
+              humidity\par
+              windy\par
+              play\par
+Test mode:    10-fold cross-validation\par
+\par
+=== Classifier model (full training set) ===\par
+\par
+Single conjunctive rule learner:\par
+--------------------------------\par
+ => play = yes\par
+\par
+Class distributions:\par
+Covered by the rule:\par
+yes\tab no\tab\par
+0.6\tab 0.4\tab\par
+\par
+Not covered by the rule:\par
+yes\tab no\tab\par
+0\tab 0\tab\par
+\par
+Time taken to build model: 0 seconds\par
+\par
+=== Stratified cross-validation ===\par
+=== Summary ===\par
+\par
+Correctly Classified Instances           9               64.2857 %\par
+Incorrectly Classified Instances         5               35.7143 %\par
+Kappa statistic                          0     \par
+Mean absolute error                      0.4762\par
+Root mean squared error                  0.5051\par
+Relative absolute error                100      %\par
+Root relative squared error            102.3787 %\par
+Total Number of Instances               14     \par
+\par
+=== Detailed Accuracy By Class ===\par
+\par
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\par
+                 1         1          0.643     1         0.783      0.333    yes\par
+                 0         0          0         0         0          0.333    no\par
+Weighted Avg.    0.643     0.643      0.413     0.643     0.503      0.333\par
+\par
+=== Confusion Matrix ===\par
+\par
+ a b   <-- classified as\par
+ 9 0 | a = yes\par
+ 5 0 | b = no\par
+\par
+About ConjunctiveRule:\par
+This class implements a single conjunctive rule learner that can predict for numeric and nominal class labels.  This learner selects an antecedent by computing the Information Gain of each antecendent and prunes the generated rule using Reduced Error Prunning (REP). \par
+\par
+\par
+\b Scheme:       weka.classifiers.rules.DecisionTable -X 1 -S "weka.attributeSelection.BestFirst -D 1 -N 5"\par
+\b0 Relation:     weather.symbolic\par
+Instances:    14\par
+Attributes:   5\par
+              outlook\par
+              temperature\par
+              humidity\par
+              windy\par
+              play\par
+Test mode:    10-fold cross-validation\par
+\par
+=== Classifier model (full training set) ===\par
+\par
+Decision Table:\par
+\par
+Number of training instances: 14\par
+Number of Rules : 1\par
+Non matches covered by Majority class.\par
+\tab Best first.\par
+\tab Start set: no attributes\par
+\tab Search direction: forward\par
+\tab Stale search after 5 node expansions\par
+\tab Total number of subsets evaluated: 12\par
+\tab Merit of best subset found:   64.286\par
+Evaluation (for feature selection): CV (leave one out) \par
+Feature set: 5\par
+\par
+Time taken to build model: 0.02 seconds\par
+\par
+=== Stratified cross-validation ===\par
+=== Summary ===\par
+\par
+Correctly Classified Instances           6               42.8571 %\par
+Incorrectly Classified Instances         8               57.1429 %\par
+Kappa statistic                         -0.3659\par
+Mean absolute error                      0.5318\par
+Root mean squared error                  0.5583\par
+Relative absolute error                111.6786 %\par
+Root relative squared error            113.1584 %\par
+Total Number of Instances               14     \par
+\par
+=== Detailed Accuracy By Class ===\par
+\par
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\par
+                 0.667     1          0.545     0.667     0.6        0.289    yes\par
+                 0         0.333      0         0         0          0.289    no\par
+Weighted Avg.    0.429     0.762      0.351     0.429     0.386      0.289\par
+\par
+=== Confusion Matrix ===\par
+\par
+ a b   <-- classified as\par
+ 6 3 | a = yes\par
+ 5 0 | b = no\par
+\par
+About  DecisionTable:\par
+Class for building and using a simple decision table majority classifier. \par
+\par
+\par
+\b Scheme:       weka.classifiers.rules.JRip -F 3 -N 2.0 -O 2 -S 1\par
+\b0 Relation:     weather.symbolic\par
+Instances:    14\par
+Attributes:   5\par
+              outlook\par
+              temperature\par
+              humidity\par
+              windy\par
+              play\par
+Test mode:    10-fold cross-validation\par
+\par
+=== Classifier model (full training set) ===\par
+\par
+JRIP rules:\par
+===========\par
+\par
+(humidity = high) and (outlook = sunny) => play=no (3.0/0.0)\par
+(outlook = rainy) and (windy = TRUE) => play=no (2.0/0.0)\par
+ => play=yes (9.0/0.0)\par
+\par
+Number of Rules : 3\par
+\par
+\par
+Time taken to build model: 0 seconds\par
+\par
+=== Stratified cross-validation ===\par
+=== Summary ===\par
+\par
+Correctly Classified Instances           9               64.2857 %\par
+Incorrectly Classified Instances         5               35.7143 %\par
+Kappa statistic                          0.186 \par
+Mean absolute error                      0.3674\par
+Root mean squared error                  0.5338\par
+Relative absolute error                 77.1635 %\par
+Root relative squared error            108.1927 %\par
+Total Number of Instances               14     \par
+\par
+=== Detailed Accuracy By Class ===\par
+\par
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\par
+                 0.778     0.6        0.7       0.778     0.737      0.656    yes\par
+                 0.4       0.222      0.5       0.4       0.444      0.656    no\par
+Weighted Avg.    0.643     0.465      0.629     0.643     0.632      0.656\par
+\par
+=== Confusion Matrix ===\par
+\par
+ a b   <-- classified as\par
+ 7 2 | a = yes\par
+ 3 2 | b = no\par
+\par
+About JRip:\par
+\par
+This class implements a propositional rule learner.  There are four stages in this class.\par
+\par
+Establish some breaking condition (such as the error rate >= 50).\par
+1: Grow phase:  Grow one rule by greedily adding antecedents (or conditions) to the rule until the rule is perfect (i.e. 100% accurate).\par
+\par
+2: Prune phase:  Incrementally prune each rule and allow the pruning of any final sequences of the antecedents\par
+\par
+Do 1 and 2 until the break condition is met.\par
+\par
+3. Optimization stage:  Generate and prune two variants of each rule Ri from randomized data using procedure 1.1 and 1.2.\par
+\par
+4. Delete the rules from the ruleset that would increase error.\par
+\par
+\par
+\b Scheme:       weka.classifiers.lazy.IB1 \par
+\b0 Relation:     weather.symbolic\par
+Instances:    14\par
+Attributes:   5\par
+              outlook\par
+              temperature\par
+              humidity\par
+              windy\par
+              play\par
+Test mode:    10-fold cross-validation\par
+\par
+=== Classifier model (full training set) ===\par
+\par
+IB1 classifier\par
+\par
+Time taken to build model: 0 seconds\par
+\par
+=== Stratified cross-validation ===\par
+=== Summary ===\par
+\par
+Correctly Classified Instances           7               50      %\par
+Incorrectly Classified Instances         7               50      %\par
+Kappa statistic                          0.0392\par
+Mean absolute error                      0.5   \par
+Root mean squared error                  0.7071\par
+Relative absolute error                105      %\par
+Root relative squared error            143.3236 %\par
+Total Number of Instances               14     \par
+\par
+=== Detailed Accuracy By Class ===\par
+\par
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\par
+                 0.444     0.4        0.667     0.444     0.533      0.522    yes\par
+                 0.6       0.556      0.375     0.6       0.462      0.522    no\par
+Weighted Avg.    0.5       0.456      0.563     0.5       0.508      0.522\par
+\par
+=== Confusion Matrix ===\par
+\par
+ a b   <-- classified as\par
+ 4 5 | a = yes\par
+ 2 3 | b = no\par
+\par
+\par
+\b Scheme:       weka.classifiers.lazy.IBk -K 1 -W 0 -A \b0 "weka.core.neighboursearch.LinearNNSearch -A \\"weka.core.EuclideanDistance -R first-last\\""\par
+Relation:     weather.symbolic\par
+Instances:    14\par
+Attributes:   5\par
+              outlook\par
+              temperature\par
+              humidity\par
+              windy\par
+              play\par
+Test mode:    10-fold cross-validation\par
+\par
+=== Classifier model (full training set) ===\par
+\par
+IB1 instance-based classifier\par
+using 1 nearest neighbour(s) for classification\par
+\par
+\par
+Time taken to build model: 0 seconds\par
+\par
+=== Stratified cross-validation ===\par
+=== Summary ===\par
+\par
+Correctly Classified Instances           8               57.1429 %\par
+Incorrectly Classified Instances         6               42.8571 %\par
+Kappa statistic                          0.0667\par
+Mean absolute error                      0.4911\par
+Root mean squared error                  0.5985\par
+Relative absolute error                103.137  %\par
+Root relative squared error            121.313  %\par
+Total Number of Instances               14     \par
+\par
+=== Detailed Accuracy By Class ===\par
+\par
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\par
+                 0.667     0.6        0.667     0.667     0.667      0.5      yes\par
+                 0.4       0.333      0.4       0.4       0.4        0.456    no\par
+Weighted Avg.    0.571     0.505      0.571     0.571     0.571      0.484\par
+\par
+=== Confusion Matrix ===\par
+\par
+ a b   <-- classified as\par
+ 6 3 | a = yes\par
+ 3 2 | b = no\par
+\par
+\par
+\b Scheme:       weka.classifiers.lazy.KStar -B 20 -M a\par
+\b0 Relation:     weather.symbolic\par
+Instances:    14\par
+Attributes:   5\par
+              outlook\par
+              temperature\par
+              humidity\par
+              windy\par
+              play\par
+Test mode:    10-fold cross-validation\par
+\par
+=== Classifier model (full training set) ===\par
+\par
+KStar Beta Verion (0.1b).\par
+Copyright (c) 1995-97 by Len Trigg (trigg@cs.waikato.ac.nz).\par
+Java port to Weka by Abdelaziz Mahoui (am14@cs.waikato.ac.nz).\par
+\par
+KStar options : -B 20 -M a  \par
+\par
+Time taken to build model: 0 seconds\par
+\par
+=== Stratified cross-validation ===\par
+=== Summary ===\par
+\par
+Correctly Classified Instances           8               57.1429 %\par
+Incorrectly Classified Instances         6               42.8571 %\par
+Kappa statistic                          0.0667\par
+Mean absolute error                      0.4711\par
+Root mean squared error                  0.5433\par
+Relative absolute error                 98.9405 %\par
+Root relative squared error            110.1307 %\par
+Total Number of Instances               14     \par
+\par
+=== Detailed Accuracy By Class ===\par
+\par
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\par
+                 0.667     0.6        0.667     0.667     0.667      0.489    yes\par
+                 0.4       0.333      0.4       0.4       0.4        0.489    no\par
+Weighted Avg.    0.571     0.505      0.571     0.571     0.571      0.489\par
+\par
+=== Confusion Matrix ===\par
+\par
+ a b   <-- classified as\par
+ 6 3 | a = yes\par
+ 3 2 | b = no\par
+\par
+\b Scheme:       weka.classifiers.rules.NNge -G 5 -I 5\par
+\b0 Relation:     weather.symbolic\par
+Instances:    14\par
+Attributes:   5\par
+              outlook\par
+              temperature\par
+              humidity\par
+              windy\par
+              play\par
+Test mode:    10-fold cross-validation\par
+\par
+=== Classifier model (full training set) ===\par
+\par
+\par
+NNGE classifier\par
+\par
+Rules generated :\par
+\tab class no IF : outlook in \{rainy\} ^ temperature in \{mild,cool\} ^ humidity in \{high,normal\} ^ windy in \{TRUE\}  (2)\par
+\tab class yes IF : outlook in \{overcast,rainy\} ^ temperature in \{hot,mild,cool\} ^ humidity in \{high,normal\} ^ windy in \{FALSE\}  (5)\par
+\tab class yes IF : outlook in \{overcast\} ^ temperature in \{mild,cool\} ^ humidity in \{high,normal\} ^ windy in \{TRUE\}  (2)\par
+\tab class yes IF : outlook in \{sunny\} ^ temperature in \{mild,cool\} ^ humidity in \{normal\} ^ windy in \{TRUE,FALSE\}  (2)\par
+\tab class no IF : outlook in \{sunny\} ^ temperature in \{hot,mild\} ^ humidity in \{high\} ^ windy in \{TRUE,FALSE\}  (3)\par
+\par
+Stat :\par
+\tab class yes : 3 exemplar(s) including 3 Hyperrectangle(s) and 0 Single(s).\par
+\tab class no : 2 exemplar(s) including 2 Hyperrectangle(s) and 0 Single(s).\par
+\par
+\tab Total : 5 exemplars(s) including 5 Hyperrectangle(s) and 0 Single(s).\par
+\par
+\tab Feature weights : [0.24674981977443894 0.029222565658954577 0.15183550136234153 0.04812703040826924]\par
+\par
+\par
+\par
+Time taken to build model: 0 seconds\par
+\par
+=== Stratified cross-validation ===\par
+=== Summary ===\par
+\par
+Correctly Classified Instances          11               78.5714 %\par
+Incorrectly Classified Instances         3               21.4286 %\par
+Kappa statistic                          0.5116\par
+Mean absolute error                      0.2143\par
+Root mean squared error                  0.4629\par
+Relative absolute error                 45      %\par
+Root relative squared error             93.8273 %\par
+Total Number of Instances               14     \par
+\par
+=== Detailed Accuracy By Class ===\par
+\par
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class\par
+                 0.889     0.4        0.8       0.889     0.842      0.744    yes\par
+                 0.6       0.111      0.75      0.6       0.667      0.744    no\par
+Weighted Avg.    0.786     0.297      0.782     0.786     0.779      0.744\par
+\par
+=== Confusion Matrix ===\par
+\par
+ a b   <-- classified as\par
+ 8 1 | a = yes\par
+ 2 3 | b = no\par
+\par
+\par
+All of the nearest nearest-neighbor approaches gave poorer results than the rule bases classifiers.  Kstar and IBK got about 57% correctly classified instances, and IB1 got 50%.  The best rule based classifier was NNge, which got correctly classified 78.57% instances.  \par
+}
+ 

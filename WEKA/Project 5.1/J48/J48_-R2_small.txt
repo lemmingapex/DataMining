@@ -1,0 +1,28 @@
+=== Evaluation result ===
+
+Scheme: J48
+Options: -C 0.25 -M 2Relation: project_5.1_small-weka.filters.unsupervised.attribute.Remove-R2
+
+
+Correctly Classified Instances       47569               58.9696 %
+Incorrectly Classified Instances     33098               41.0304 %
+Kappa statistic                          0.119 
+Mean absolute error                      0.4787
+Root mean squared error                  0.4914
+Relative absolute error                 97.1962 %
+Root relative squared error             99.0179 %
+Total Number of Instances            80667     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.282     0.17       0.565     0.282     0.377      0.577    Alive:  Not reported dead before 2001
+                 0.83      0.718      0.597     0.83      0.694      0.577    Dead: Reported dead before 2001
+Weighted Avg.    0.59      0.477      0.583     0.59      0.555      0.577
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+  9997 25411 |     a = Alive:  Not reported dead before 2001
+  7687 37572 |     b = Dead: Reported dead before 2001
+

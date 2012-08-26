@@ -1,0 +1,39 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.SimpleKMeans -N 3 -A "weka.core.EuclideanDistance -R first-last" -I 500 -S 10
+Relation:     project_5.1_small
+Instances:    80667
+Attributes:   5
+               Age at Diagnosis
+              Race or Ethnicity
+              Sex and Sexual Orientation
+Ignored:
+              Location
+              Vital Status
+Test mode:    evaluate on training data
+
+=== Model and evaluation on training set ===
+
+
+kMeans
+======
+
+Number of iterations: 3
+Within cluster sum of squared errors: 99382.0
+Missing values globally replaced with mean/mode
+
+Cluster centroids:
+                                                                                                                                 Cluster#
+Attribute                                                                          Full Data                                            0                                            1                                            2
+                                                                                     (80667)                                      (45733)                                      (23230)                                      (11704)
+===================================================================================================================================================================================================================================
+ Age at Diagnosis                                            35 - 39 Years or age is missing              35 - 39 Years or age is missing                                30 - 34 Years                                30 - 34 Years
+Race or Ethnicity                                              White (and also not Hispanic)                White (and also not Hispanic)                Black (and also not Hispanic)                Black (and also not Hispanic)
+Sex and Sexual Orientation                      Male (homosexual)  or Unknown Classification Male (homosexual)  or Unknown Classification             Male (heterosexual or pediatric)                                 Female (any)
+
+
+Clustered Instances
+
+0      45733 ( 57%)
+1      23230 ( 29%)
+2      11704 ( 15%)
